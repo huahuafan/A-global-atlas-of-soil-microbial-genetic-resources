@@ -1,23 +1,40 @@
 # A-global-atlas-of-soil-microbial-genetic-resources
 This R code includes the R packages (including versions) and code used in this manuscript.
+
 We also include dataset to demo the code, and also provide instructions to run the code on my data.
+
 In detail, the R code incude the following codes:
 
 #1. calculating the Jaccard distance
+
 #examples for the 200 sampling plot
+
 #2.Stacked Bar Chart for protected areas across different climate regions and vegetation types
+
 #3.boxplot for the relative abundance of microbial traits
+
 #drawing the relative abundance of microbial traits across biomes
+
 #drawing the relative abundance of microbial enzyme profiles across biomes
+
 ##drawing the relative abundance of microbial traits across different climate
+
 ##drawing the relative abundance of microbial enzyme profiles across different climate
+
 #4.Spearman_correlations and drawing the heatmaps and bubble plot
+
 #From these results, we could find the spearman correlations between env with the gene richnness/dissimilarity, the relative abundance of microbial traits and enzyme profiles
+
 #5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables
+
 #6.VPA_analysis and plot
+
 #We show one example from our datasets
+
 #R code for maps
+
 #7. Part Random forest map of Global distribution of soil microbial genetic resources
+
 #This part of code performs a spatial prediction analysis using a # random forest model and then exports the results to a Gtiff file. #
 
 #It first loads several packages, including the raster, randomForest, # sf and rgdal libraries. The raster data files (in GeoTIFF format) are then loaded using the "raster" function, and their pixel sizes # are changed to 25 km using the "aggregate" function.
