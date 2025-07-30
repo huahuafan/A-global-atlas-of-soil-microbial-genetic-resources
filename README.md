@@ -2,6 +2,7 @@
 This R code includes the R packages (including versions) and code used in this manuscript.
 We also include dataset to demo the code, and also provide instructions to run the code on my data.
 In detail, the R code incude the following codes:
+
 #1. calculating the Jaccard distance
 #examples for the 200 sampling plot
 #2.Stacked Bar Chart for protected areas across different climate regions and vegetation types
