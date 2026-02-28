@@ -1,7 +1,7 @@
 # 1. calculating the Jaccard distance
 #for the 200 sampling plot
 library(vegan)
-Ko <- read.table("1.Jaccard distance/KEGG_200_2025.txt",header = TRUE)
+Ko <- read.table("1.Jaccard distance.zip/KEGG_200_2025.txt",header = TRUE)
 df.abundances=data.frame(Ko)
 # dataframe with presence/absence
 df.binary = df.abundances
@@ -10,7 +10,7 @@ dis=vegdist(t(df.binary), method = "jaccard", binary = T)
 dis=as.matrix(dis)
 write.table(dis,"dis_KEGG_200_2025.txt",sep="\t")
 #for the 1609 sampling plot
-Ko <- read.table("1.Jaccard distance/KEGG_1609_2025.txt",header = TRUE)
+Ko <- read.table("1.Jaccard distance.zip/KEGG_1609_2025.txt",header = TRUE)
 df.abundances=data.frame(Ko)
 # dataframe with presence/absence
 df.binary = df.abundances
@@ -25,7 +25,7 @@ library(ggplot2) # CRAN v3.4.2
 library(ggprism) # CRAN v1.0.4
 library(plyr)    # CRAN v1.8.8
 library(ggthemes)
-data <- read.table("protected_areas_traits.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_traits.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -40,10 +40,10 @@ p1<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p1
-saveRDS(p1, paste0("~/2.Stacked Bar Chart for protected areas", "/traits_enzyme.rds"))
-ggsave(plot = p1, filename = paste0("~/2.Stacked Bar Chart for protected areas", "/traits_enzyme.png"),width = 5, height = 7, dpi = "retina")
+saveRDS(p1, paste0("/2.Stacked Bar Chart for protected areas", "/traits_enzyme.rds"))
+ggsave(plot = p1, filename = paste0("/2.Stacked Bar Chart for protected areas", "/traits_enzyme.png"),width = 5, height = 7, dpi = "retina")
 
-data <- read.table("protected_areas_gene_richness_Fig1_1.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_gene_richness_Fig1_1.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -58,10 +58,10 @@ p2<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p2
-saveRDS(p2, paste0("~/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.rds"))
-ggsave(plot = p2, filename = paste0("~/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.png"),width = 4, height = 6.4, dpi = "retina")
+saveRDS(p2, paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.rds"))
+ggsave(plot = p2, filename = paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.png"),width = 4, height = 6.4, dpi = "retina")
 
-data <- read.table("protected_areas_gene_dissimilarity_Fig1_2.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_gene_dissimilarity_Fig1_2.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -76,10 +76,10 @@ p3<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p3
-saveRDS(p3, paste0("~/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.rds"))
-ggsave(plot = p3, filename = paste0("~/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.png"),width = 4, height = 6.4, dpi = "retina")
+saveRDS(p3, paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.rds"))
+ggsave(plot = p3, filename = paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.png"),width = 4, height = 6.4, dpi = "retina")
 
-data <- read.table("protected_areas_gene_richness_dissimilarity_Fig1_3.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_gene_richness_dissimilarity_Fig1_3.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -94,14 +94,14 @@ p4<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p4
-saveRDS(p4, paste0("~/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.rds"))
-ggsave(plot = p4, filename = paste0("~/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.png"),width = 4, height = 6.4, dpi = "retina")
+saveRDS(p4, paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.rds"))
+ggsave(plot = p4, filename = paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.png"),width = 4, height = 6.4, dpi = "retina")
 
 #3.boxplot for the relative abundance of microbial traits
 
 library(ggplot2)
-data=read.table("box_climate_richness_dissimilarity.txt",header=T)
-meandf=read.table("meandf_climate_richness_dissimilarity.txt",header=T)
+data=read.table("3.Boxplot for genes.zip/box_climate_richness_dissimilarity.txt",header=T)
+meandf=read.table("3.Boxplot for genes.zip/meandf_climate_richness_dissimilarity.txt",header=T)
 pbar_richnness <- ggplot(data,aes(Response,Richness))+
   geom_boxplot(aes(fill=Response),outlier.shape = NA) +
   geom_jitter(size = 3, alpha = 0.25) +
@@ -113,11 +113,11 @@ pbar_richnness <- ggplot(data,aes(Response,Richness))+
         axis.text = element_text(size = 14),
         strip.text = element_text(size = 12, face = "bold"))
 pbar_richnness
-saveRDS(pbar_richnness, paste0("~/4.Boxplot for the gene_richnness", "/gene_richness.rds"))
-ggsave(plot = pbar_richnness, filename = paste0("~/4.Boxplot for the gene_richnness", "/gene_richness.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(pbar_richnness, paste0("/3.Boxplot for genes", "/gene_richness.rds"))
+ggsave(plot = pbar_richnness, filename = paste0("/3.Boxplot for genes", "/gene_richness.png"),width = 10, height = 6.4, dpi = "retina")
 
-data=read.table("box_climate_richness_dissimilarity.txt",header=T)
-meandf=read.table("meandf_climate_richness_dissimilarity.txt",header=T)
+data=read.table("3.Boxplot for genes.zip/box_climate_richness_dissimilarity.txt",header=T)
+meandf=read.table("3.Boxplot for genes.zip/meandf_climate_richness_dissimilarity.txt",header=T)
 pbar_Dissimilarity <- ggplot(data,aes(Response,Dissimilarity1))+
   geom_boxplot(aes(fill=Response),outlier.shape = NA) +
   geom_jitter(size = 3, alpha = 0.25) +
@@ -129,12 +129,12 @@ pbar_Dissimilarity <- ggplot(data,aes(Response,Dissimilarity1))+
         axis.text = element_text(size = 14),
         strip.text = element_text(size = 12, face = "bold"))
 pbar_Dissimilarity
-saveRDS(pbar_Dissimilarity, paste0("~/3.Boxplot for the gene_Dissimilarity", "/gene_Dissimilarity.rds"))
-ggsave(plot = pbar_Dissimilarity, filename = paste0("~/3.Boxplot for the gene_Dissimilarity", "/gene_Dissimilarity.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(pbar_Dissimilarity, paste0("/3.Boxplot for genes", "/gene_Dissimilarity.rds"))
+ggsave(plot = pbar_Dissimilarity, filename = paste0("/3.Boxplot for genes", "/gene_Dissimilarity.png"),width = 10, height = 6.4, dpi = "retina")
 
 #drawing the relative abundance of microbial traits across biomes
-data=read.table("3.Boxplot for thegene richnness_dissimilarity and relative abundance of microbial traits and enzyme profiles/box_plot.txt",header=T)
-meandf=read.table("3.Boxplot for thegene richnness_dissimilarity and relative abundance of microbial traits and enzyme profiles/meandf.txt",header=T)
+data=read.table("3.Boxplot for genes.zip/box_plot.txt",header=T)
+meandf=read.table("3.Boxplot for genes.zip/meandf.txt",header=T)
 pbar_microbial_traits <- ggplot(data,aes(Response,multigenes))+
   geom_boxplot(aes(fill=Response),outlier.shape = NA) +
   geom_jitter(size = 3, alpha = 0.25) +
@@ -146,12 +146,12 @@ pbar_microbial_traits <- ggplot(data,aes(Response,multigenes))+
         axis.text = element_text(size = 14),
         strip.text = element_text(size = 12, face = "bold"))
 pbar_microbial_traits
-saveRDS(pbar_microbial_traits, paste0("~/3.Boxplot for thegene richnness_dissimilarity and relative abundance of microbial traits and enzyme profiles", "/relative_abundance_of_multigenes.rds"))
-ggsave(plot = pbar_microbial_traits, filename = paste0("~/3.Boxplot for thegene richnness_dissimilarity and relative abundance of microbial traits and enzyme profiles", "/relative_abundance_of_multigenes.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(pbar_microbial_traits, paste0("/3.Boxplot for genes", "/relative_abundance_of_multigenes.rds"))
+ggsave(plot = pbar_microbial_traits, filename = paste0("/3.Boxplot for genes", "/relative_abundance_of_multigenes.png"),width = 10, height = 6.4, dpi = "retina")
 
 #drawing the relative abundance of microbial enzyme profiles across biomes
-data=read.table("~/box_plot.txt",header=T)
-meandf=read.table("~/meandf.txt",header=T)
+data=read.table("3.Boxplot for genes.zip/box_plot.txt",header=T)
+meandf=read.table("3.Boxplot for genes.zip/meandf.txt",header=T)
 pbar_enzyme <- ggplot(data,aes(Response,multienzyme))+
   geom_boxplot(aes(fill=Response),outlier.shape = NA) +
   geom_jitter(size = 3, alpha = 0.25) +
@@ -163,12 +163,12 @@ pbar_enzyme <- ggplot(data,aes(Response,multienzyme))+
         axis.text = element_text(size = 14),
         strip.text = element_text(size = 12, face = "bold"))
 pbar_enzyme
-saveRDS(pbar_enzyme, paste0("~/3.Boxplot for the relative abundance of microbial traits and enzyme profiles", "/relative_abundance_of_multienzyme.rds"))
-ggsave(plot = pbar_enzyme, filename = paste0("~/3.Boxplot for the relative abundance of microbial traits and enzyme profiles", "/relative_abundance_of_multienzyme.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(pbar_enzyme, paste0("/3.Boxplot for genes", "/relative_abundance_of_multienzyme.rds"))
+ggsave(plot = pbar_enzyme, filename = paste0("/3.Boxplot for genes", "/relative_abundance_of_multienzyme.png"),width = 10, height = 6.4, dpi = "retina")
 
 ##drawing the relative abundance of microbial traits across different climate
-data=read.table("~/box_climate.txt",header=T)
-meandf=read.table("~/meandf_climate.txt",header=T)
+data=read.table("3.Boxplot for genes.zip/box_climate.txt",header=T)
+meandf=read.table("3.Boxplot for genes.zip/meandf_climate.txt",header=T)
 pbar1 <- ggplot(data,aes(Response,multigenes))+
   geom_boxplot(aes(fill=Response),outlier.shape = NA) +
   geom_jitter(size = 3, alpha = 0.25) +
@@ -180,12 +180,12 @@ pbar1 <- ggplot(data,aes(Response,multigenes))+
         axis.text = element_text(size = 14),
         strip.text = element_text(size = 12, face = "bold"))
 pbar1
-saveRDS(pbar1, paste0("~/3.Boxplot for the relative abundance of microbial traits and enzyme profiles", "/relative_abundance_climate_traits.rds"))
-ggsave(plot = pbar1, filename = paste0("~/3.Boxplot for the relative abundance of microbial traits and enzyme profiles", "/relative_abundance_climate_traits.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(pbar1, paste0("/3.Boxplot for genes", "/relative_abundance_climate_traits.rds"))
+ggsave(plot = pbar1, filename = paste0("/3.Boxplot for genes", "/relative_abundance_climate_traits.png"),width = 10, height = 6.4, dpi = "retina")
 
 ##drawing the relative abundance of microbial enzyme profiles across different climate
-data=read.table("~/box_climate.txt",header=T)
-meandf=read.table("~/meandf_climate.txt",header=T)
+data=read.table("3.Boxplot for genes.zip/box_climate.txt",header=T)
+meandf=read.table("3.Boxplot for genes.zip/meandf_climate.txt",header=T)
 pbar2 <- ggplot(data,aes(Response,multienzyme))+
   geom_boxplot(aes(fill=Response),outlier.shape = NA) +
   geom_jitter(size = 3, alpha = 0.25) +
@@ -197,15 +197,15 @@ pbar2 <- ggplot(data,aes(Response,multienzyme))+
         axis.text = element_text(size = 14),
         strip.text = element_text(size = 12, face = "bold"))
 pbar2
-saveRDS(pbar2, paste0("~/3.Boxplot for the relative abundance of microbial traits and enzyme profiles", "/relative_abundance_climate_enzyme.rds"))
-ggsave(plot = pbar2, filename = paste0("~/3.Boxplot for the relative abundance of microbial traits and enzyme profiles", "/relative_abundance_climate_enzyme.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(pbar2, paste0("/3.Boxplot for genes", "/relative_abundance_climate_enzyme.rds"))
+ggsave(plot = pbar2, filename = paste0("/3.Boxplot for genes", "/relative_abundance_climate_enzyme.png"),width = 10, height = 6.4, dpi = "retina")
 
 #4.Spearman_correlations and drawing the heatmaps and bubble plot
 ##Spearman correlations
 library(tidyverse)##
 library(psych)
 library(corrplot)
-all <- read.table("Spearman_env_filter_VPA_to_genes.txt", header = TRUE,row.names = 1,sep = "\t")
+all <- read.table("4.Spearman_correlations_Bubble_plot.zip/Spearman_env_filter_VPA_to_genes.txt", header = TRUE,row.names = 1,sep = "\t")
 abc <- corr.test(all,method="spearman",adjust="BH")##
 write.table(t(abc$r),"spearmanr_spearman_correlations_1609.txt",sep="\t")
 write.table(t(abc$p),"spearmanp_spearman_correlations_1609.txt",sep="\t")
@@ -213,7 +213,7 @@ write.table(t(abc$p),"spearmanp_spearman_correlations_1609.txt",sep="\t")
 #From these results, we could find the spearman correlations between env with the gene richnness/dissimilarity, the relative abundance of microbial traits and enzyme profiles
 #Drawing the bubble plot
 library(ggplot2)
-data <- read.table("bubble_abun_new.txt",header = TRUE)
+data <- read.table("4.Spearman_correlations_Bubble_plot.zip/bubble_abun_new.txt",header = TRUE)
 bubble=ggplot(data, aes(x = y, y = x, size = size, color = category)) +
   geom_point(alpha = 0.7) +
   scale_size(range = c(0.1, 9)) + # Adjust the range of bubble sizes
@@ -231,8 +231,8 @@ bubble=ggplot(data, aes(x = y, y = x, size = size, color = category)) +
     legend.position = "right"
   )
 bubble
-saveRDS(bubble, paste0("~/4.Spearman_correlations_Bubble_plot_heatmaps", "/env_traits.rds"))
-ggsave(plot = bubble, filename = paste0("~/4.Spearman_correlations_Bubble_plot_heatmaps", "/env_traits.png"),width = 10, height = 6.4, dpi = "retina")
+saveRDS(bubble, paste0("/4.Spearman_correlations_Bubble_plot", "/env_traits.rds"))
+ggsave(plot = bubble, filename = paste0("/4.Spearman_correlations_Bubble_plot", "/env_traits.png"),width = 10, height = 6.4, dpi = "retina")
 
 #5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables
 library(vegan)
@@ -248,27 +248,27 @@ library(Hmisc)
 rm(list=ls())
 
 #Co-linearity analysis
-varechem<-read.table("5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/Spearman_env_filter_VPA_to_genes.txt", header = TRUE,row.names = 1,sep = "\t")
+varechem<-read.table("5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables.zip/Spearman_env_filter_VPA_to_genes.txt", header = TRUE,row.names = 1,sep = "\t")
 varechem=varechem[c(1:19)]
 env<-as.matrix(varechem)
 co_linear <- varclus(env, similarity="spear") # spearman is the default
 co_linear
 p1=plot(co_linear)#一般来说当spearman ρ2 > 0.7时则表明分支上的变量可能存在严重的共线性，此时应该根据研究的目的去除其中一个变量。
-saveRDS(p1, paste0("~/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/all.rds"))
-ggsave(plot = p1, filename = paste0("~/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/all.png"),width = 5, height = 7, dpi = "retina")
+saveRDS(p1, paste0("/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/all.rds"))
+ggsave(plot = p1, filename = paste0("/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/all.png"),width = 5, height = 7, dpi = "retina")
 
 varechem=varechem[c(2:4,6:11,13,15:16,18)]
 env<-as.matrix(varechem)
 co_linear <- varclus(env, similarity="spear") # spearman is the default
 co_linear
 p2=plot(co_linear)
-saveRDS(p2, paste0("~/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/selected_variables.rds"))
-ggsave(plot = p2, filename = paste0("~/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/selected_variables.png"),width = 5, height = 7, dpi = "retina")
+saveRDS(p2, paste0("/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/selected_variables.rds"))
+ggsave(plot = p2, filename = paste0("/5.Hierarchical clustering to evaluate the inter-dependencies between pairwise variables/", "/selected_variables.png"),width = 5, height = 7, dpi = "retina")
 
 #6.VPA_analysis and plot
 #We show one example from our datasets
 library("vegan")
-a=read.table("Spearman_env_filter_VPA_to_genes.txt",header = TRUE,row.names = 1,sep = "\t")
+a=read.table("6.VPA_analysis_plot.zip/Spearman_env_filter_VPA_to_genes.txt",header = TRUE,row.names = 1,sep = "\t")
 a=a[1:1529,]
 b=a[1:1529,42]
 #c=a[c(2:4,6:11,13,15:16,18)]
@@ -299,8 +299,7 @@ anova(aFrac, step=9999, perm.max=9999)
 library(RColorBrewer)
 library(reshape2)
 library(ggplot2)
-#data<-read.csv("VPA/duiji.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
-data<-read.csv("duiji_new.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
+data<-read.csv("6.VPA_analysis_plot.zip/duiji_new.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 data<-melt(data,id.vars='taxa')
 sorder = factor(data$variable,levels=unique(data$variable),order=TRUE)
 porder = factor(data$taxa,levels=unique(data$taxa),order=TRUE)
@@ -399,4 +398,5 @@ mahatotal <- predict(m, sng)
 
 #Export the map
 writeRaster(mahatotal,'\\Users\\usuario\\Desktop\\Mahalanobis_kunkun.tif',options=c('TFW=YES'))
+
 beep(1)
