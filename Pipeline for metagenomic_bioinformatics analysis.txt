@@ -1,0 +1,20 @@
+fastp -i RAW_READS/${SAMPLE}_R1.fq.gz -I RAW_READS/${SAMPLE}_R2.fq.gz \
+     -o CLEAN_READS_FP/${SAMPLE}_R1.fq.gz -O
+CLEAN_READS_FP/${SAMPLE}_R2.fq.gz \
+     -h CLEAN_READS_SE/${SAMPLE}_fastp_report.html -j 
+CLEAN_READS_SE/${SAMPLE}_fastp_report.json \
+     -w 28 -W 4 -q 20 --length_required 50 \
+     --detect_adapter_for_pe --cut_front --cut_tail
+
+
+megahit -1 CLEAN_READS/${SAMPLE}.R1.clean.fq.gz -2
+CLEAN_READS/${SAMPLE}.R2.clean.fq.gz -o ASSEMBLY/${SAMPLE} --k-list 
+27,37,47,57,77,99,119 -t 28 -m 128 --min-contig-len 1000
+prodigal -i ASSEMBLY_1K/${SAMPLE}.1K.fa -d ORF_Prokka/ORF_ALL/${SAMPLE}.fa -o
+ORF_Prokka/ORF_gff/${SAMPLE}.gff -p meta -f gff
+
+cd-hit-est -i ORF_CDHIT/ORF_merged.ffn -o ORF_CDHIT/ORF_nucleotide.fa -aS 0.9 -c 0.95 -G 0 -M 0 -T 104 -g 1
+
+salmon quant -i Results/Salmon/ORF_index -l A -p 104 --meta -1 
+CLEAN_READS/${SAMPLE}_R1.fq.gz -2 CLEAN_READS/${SAMPLE}_R2.fq.gz -o
+Results/Salmon/Index_All/${SAMPLE}.quant
