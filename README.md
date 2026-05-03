@@ -10,6 +10,7 @@ In detail, the R code incude the following codes:
 #examples for the 200 sampling plot
 
 #2.Stacked Bar Chart for protected areas across different climate regions and vegetation types
+#In the previous round of revision, based on the constructive feedback from all reviewers, we updated our mapping analyses—including a revised calculation of protected areas. Please use the updated data in the "2.updated_version_Stacked Bar Chart for protected areas".
 
 #3.boxplot for the relative abundance of microbial traits
 
