@@ -132,39 +132,39 @@ pbar_Dissimilarity
 saveRDS(pbar_Dissimilarity, paste0("/3.Boxplot for genes", "/gene_Dissimilarity.rds"))
 ggsave(plot = pbar_Dissimilarity, filename = paste0("/3.Boxplot for genes", "/gene_Dissimilarity.png"),width = 10, height = 6.4, dpi = "retina")
 
-#drawing the relative abundance of microbial traits across biomes
-data=read.table("3.Boxplot for genes.zip/box_plot.txt",header=T)
-meandf=read.table("3.Boxplot for genes.zip/meandf.txt",header=T)
-pbar_microbial_traits <- ggplot(data,aes(Response,multigenes))+
-  geom_boxplot(aes(fill=Response),outlier.shape = NA) +
-  geom_jitter(size = 3, alpha = 0.25) +
-  geom_point(data = meandf, aes(x = Response, y = multigenes), size = 5, color = "cyan", pch = 18) +
-  labs(x = "Response",y = NULL) +
-  theme_bw() +
-  theme(legend.position = "none",
-        axis.title = element_text(face = "bold", size = 16),
-        axis.text = element_text(size = 14),
-        strip.text = element_text(size = 12, face = "bold"))
-pbar_microbial_traits
-saveRDS(pbar_microbial_traits, paste0("/3.Boxplot for genes", "/relative_abundance_of_multigenes.rds"))
-ggsave(plot = pbar_microbial_traits, filename = paste0("/3.Boxplot for genes", "/relative_abundance_of_multigenes.png"),width = 10, height = 6.4, dpi = "retina")
+##drawing the relative abundance of microbial traits across biomes (this part was removed from the analysis)
+#data=read.table("3.Boxplot for genes.zip/box_plot.txt",header=T)
+#meandf=read.table("3.Boxplot for genes.zip/meandf.txt",header=T)
+#pbar_microbial_traits <- ggplot(data,aes(Response,multigenes))+
+#  geom_boxplot(aes(fill=Response),outlier.shape = NA) +
+ # geom_jitter(size = 3, alpha = 0.25) +
+  #geom_point(data = meandf, aes(x = Response, y = multigenes), size = 5, color = "cyan", pch = 18) +
+  #labs(x = "Response",y = NULL) +
+ # theme_bw() +
+  #theme(legend.position = "none",
+       #  axis.title = element_text(face = "bold", size = 16),
+       #  axis.text = element_text(size = 14),
+       #  strip.text = element_text(size = 12, face = "bold"))
+ #pbar_microbial_traits
+ #saveRDS(pbar_microbial_traits, paste0("/3.Boxplot for genes", "/relative_abundance_of_multigenes.rds"))
+ #ggsave(plot = pbar_microbial_traits, filename = paste0("/3.Boxplot for genes", "/relative_abundance_of_multigenes.png"),width = 10, height = 6.4, dpi = "retina")
 
-#drawing the relative abundance of microbial enzyme profiles across biomes
-data=read.table("3.Boxplot for genes.zip/box_plot.txt",header=T)
-meandf=read.table("3.Boxplot for genes.zip/meandf.txt",header=T)
-pbar_enzyme <- ggplot(data,aes(Response,multienzyme))+
-  geom_boxplot(aes(fill=Response),outlier.shape = NA) +
-  geom_jitter(size = 3, alpha = 0.25) +
-  geom_point(data = meandf, aes(x = Response, y = multienzyme), size = 5, color = "cyan", pch = 18) +
-  labs(x = "Response",y = NULL) +
-  theme_bw() +
-  theme(legend.position = "none",
-        axis.title = element_text(face = "bold", size = 16),
-        axis.text = element_text(size = 14),
-        strip.text = element_text(size = 12, face = "bold"))
-pbar_enzyme
-saveRDS(pbar_enzyme, paste0("/3.Boxplot for genes", "/relative_abundance_of_multienzyme.rds"))
-ggsave(plot = pbar_enzyme, filename = paste0("/3.Boxplot for genes", "/relative_abundance_of_multienzyme.png"),width = 10, height = 6.4, dpi = "retina")
+ ##drawing the relative abundance of microbial enzyme profiles across biomes
+ #data=read.table("3.Boxplot for genes.zip/box_plot.txt",header=T)
+ #meandf=read.table("3.Boxplot for genes.zip/meandf.txt",header=T)
+ #pbar_enzyme <- ggplot(data,aes(Response,multienzyme))+
+   #geom_boxplot(aes(fill=Response),outlier.shape = NA) +
+ #  geom_jitter(size = 3, alpha = 0.25) +
+   #geom_point(data = meandf, aes(x = Response, y = multienzyme), size = 5, color = "cyan", pch = 18) +
+  # labs(x = "Response",y = NULL) +
+  # theme_bw() +
+  # theme(legend.position = "none",
+      #   axis.title = element_text(face = "bold", size = 16),
+       #  axis.text = element_text(size = 14),
+       #  strip.text = element_text(size = 12, face = "bold"))
+ #pbar_enzyme
+ #saveRDS(pbar_enzyme, paste0("/3.Boxplot for genes", "/relative_abundance_of_multienzyme.rds"))
+ #ggsave(plot = pbar_enzyme, filename = paste0("/3.Boxplot for genes", "/relative_abundance_of_multienzyme.png"),width = 10, height = 6.4, dpi = "retina")
 
 ##drawing the relative abundance of microbial traits across different climate
 data=read.table("3.Boxplot for genes.zip/box_climate.txt",header=T)
@@ -211,7 +211,7 @@ write.table(t(abc$r),"spearmanr_spearman_correlations_1609.txt",sep="\t")
 write.table(t(abc$p),"spearmanp_spearman_correlations_1609.txt",sep="\t")
 
 #From these results, we could find the spearman correlations between env with the gene richnness/dissimilarity, the relative abundance of microbial traits and enzyme profiles
-#Drawing the bubble plot
+#Drawing the bubble plot (category: A:significant positive; B: not significant; C: significant negative)
 library(ggplot2)
 data <- read.table("4.Spearman_correlations_Bubble_plot.zip/bubble_abun_new.txt",header = TRUE)
 bubble=ggplot(data, aes(x = y, y = x, size = size, color = category)) +
