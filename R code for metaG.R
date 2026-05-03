@@ -25,7 +25,7 @@ library(ggplot2) # CRAN v3.4.2
 library(ggprism) # CRAN v1.0.4
 library(plyr)    # CRAN v1.8.8
 library(ggthemes)
-data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_traits.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.updated_version_Stacked Bar Chart for protected areas.zip/protected_areas_traits.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -40,10 +40,10 @@ p1<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p1
-saveRDS(p1, paste0("/2.Stacked Bar Chart for protected areas", "/traits_enzyme.rds"))
-ggsave(plot = p1, filename = paste0("/2.Stacked Bar Chart for protected areas", "/traits_enzyme.png"),width = 5, height = 7, dpi = "retina")
+saveRDS(p1, paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/traits_enzyme.rds"))
+ggsave(plot = p1, filename = paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/traits_enzyme.png"),width = 5, height = 7, dpi = "retina")
 
-data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_gene_richness_Fig1_1.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.updated_version_Stacked Bar Chart for protected areas.zip/protected_areas_gene_richness_Fig1_1.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -58,10 +58,10 @@ p2<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p2
-saveRDS(p2, paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.rds"))
-ggsave(plot = p2, filename = paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.png"),width = 4, height = 6.4, dpi = "retina")
+saveRDS(p2, paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.rds"))
+ggsave(plot = p2, filename = paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_Fig1_1.png"),width = 4, height = 6.4, dpi = "retina")
 
-data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_gene_dissimilarity_Fig1_2.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.updated_version_Stacked Bar Chart for protected areas.zip/protected_areas_gene_dissimilarity_Fig1_2.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -76,10 +76,10 @@ p3<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p3
-saveRDS(p3, paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.rds"))
-ggsave(plot = p3, filename = paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.png"),width = 4, height = 6.4, dpi = "retina")
+saveRDS(p3, paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.rds"))
+ggsave(plot = p3, filename = paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/protected_areas_gene_dissimilarity_Fig1_2.png"),width = 4, height = 6.4, dpi = "retina")
 
-data <- read.table("2.Stacked Bar Chart for protected areas.zip/protected_areas_gene_richness_dissimilarity_Fig1_3.txt", header = T, sep = '\t', check.names = FALSE)
+data <- read.table("2.updated_version_Stacked Bar Chart for protected areas.zip/protected_areas_gene_richness_dissimilarity_Fig1_3.txt", header = T, sep = '\t', check.names = FALSE)
 DJ <- melt(data,id.vars='x_axis')
 names(DJ)[1:2] <- c("Taxonomy","sample")  
 DJ$sample <- factor(DJ$sample, levels = unique(DJ$sample))       
@@ -94,8 +94,8 @@ p4<-ggplot(DJ, aes( x = sample,y = value, fill = Taxonomy))+
   theme_few()+     
   scale_fill_manual(values=c("#FFFEE0","#C0C000"))  
 p4
-saveRDS(p4, paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.rds"))
-ggsave(plot = p4, filename = paste0("/2.Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.png"),width = 4, height = 6.4, dpi = "retina")
+saveRDS(p4, paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.rds"))
+ggsave(plot = p4, filename = paste0("/2.updated_version_Stacked Bar Chart for protected areas", "/protected_areas_gene_richness_dissimilarity_Fig1_3.png"),width = 4, height = 6.4, dpi = "retina")
 
 #3.boxplot for the relative abundance of microbial traits
 
@@ -212,6 +212,13 @@ write.table(t(abc$p),"spearmanp_spearman_correlations_1609.txt",sep="\t")
 
 #From these results, we could find the spearman correlations between env with the gene richnness/dissimilarity, the relative abundance of microbial traits and enzyme profiles
 #Drawing the bubble plot (category: A:significant positive; B: not significant; C: significant negative)
+##x:A-Z91:Gene_richness, Gene_dissimilarity, Microbial_traits, Sporulation, Motility, Nitrogen_fixation, Denitrification, Nitrification, P_solubilization,
+# Sulfur_metabolism, Methanogenesis, Methanotrophs, Microbial_photosynthesis, Prokaryotic_carbon_fixation, Sugar_degradation, Xylose_degradation, Starch_degradation,
+# Chitin_degradation, DNA_damage_repair, Toxin-antitoxin_systems, Temperature_responsive, Response_to_cation_stress, Response_to_oxidative_stress, Response_to_osmotic_stress,
+# Circadian_rhythm, Plant_pathogens_interactions, Antibiotic_resistance, Infectious_disease, Enzyme_profiles, Oxidoreductases, Transferases,
+# Hydrolases, Lyases, Isomerases, Ligases,Translocases
+##y: A-N: Elevation, Slope, MAT, PSEA, MDR, TSEA, Aridity, Plant cover, Bulk density, SOC,Soil C:N, Soil fine texture, Soil pH
+
 library(ggplot2)
 data <- read.table("4.Spearman_correlations_Bubble_plot.zip/bubble_abun_new.txt",header = TRUE)
 bubble=ggplot(data, aes(x = y, y = x, size = size, color = category)) +
